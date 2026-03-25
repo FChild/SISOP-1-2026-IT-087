@@ -45,11 +45,11 @@ next
 
 END {
     if (soal == "a") {
-        print "Jumlah penumpang:", count
+        print "Jumlah seluruh penumpang KANJ adalah", count " orang"
     }
 
     else if (soal == "b") {
-        print "Jumlah gerbong:", length(gerbong)
+        print "Jumlah gerbong penumpang KANJ adalah", length(gerbong)
     }
 
     else if (soal == "c") {
@@ -62,7 +62,7 @@ END {
     }
 
     else if (soal == "e") {
-        print "Jumlah penumpang Business Class:", business
+        print "Jumlah penumpang Business Class ada", business " orang"
     }
     else {
         print "Soal tidak dikenali. Gunakan a, b, c, d, atau e."

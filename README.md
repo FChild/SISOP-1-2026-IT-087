@@ -111,7 +111,6 @@ END {
 
 #Soal_2
 Untuk soal kedua ini, kita mencari data koordinat dari file JSON dan bikin kalkulasi bash script buat nyari lokasi rahasia. 
-ada dua script utama yang perlu disiapin.
 
 #PENJELASAN ALUR (STEPBYSTEP)
 - Menyiapkan tools untuk mendownload file gdrive dengan menggunakan venv dan pip

@@ -123,7 +123,7 @@ END {
     }
 }
 ```
-![output soal 1](images/Output soal_1.png)  
+![Output Soal 1](images/Output_soal_1.png)  
 **Kendala**  
 - Ada sedikit kendala untuk membersihkan data menghitung gerbong yang ada  
 
@@ -132,8 +132,8 @@ END {
 
 ##Soal_2
 Untuk soal kedua ini, kita mencari data koordinat dari file JSON dan bikin kalkulasi bash script buat nyari lokasi rahasia. 
-
-#PENJELASAN ALUR (STEPBYSTEP)
+##
+# PENJELASAN ALUR (STEPBYSTEP)
 - Menyiapkan tools untuk mendownload file gdrive dengan menggunakan venv dan pip
 - Membuat folder baru di folder soal_2 yang bernama ekspedisi. Folder ini akan di isi dengan
   file gdrive
@@ -142,13 +142,73 @@ Untuk soal kedua ini, kita mencari data koordinat dari file JSON dan bikin kalku
   digunakan untuk mencari data koordinat
 - gunakan (git clone <Link yang baru didapat> peta-gunung-kawi) di folder ekspedisi
 - setelah mengclone link tersebut akan muncul gsxtrack.json yang berisi data koordinat
-- buat file "parserkoordinat.sh" untuk mengisi file tersebut dengan script 
-  agar id, site_name, latitude, longitude dari gsxtrack.json terlihat rapi
-- output dari script tersebut akan diberi nama baru yaitu "titik-penting.txt"
-- setelah itu lanjut membuat file baru "nemupusaka.sh" 
-- file tersebut akan di isi script untuk mencari titik tengah diagonal letak pasti pusaka tersebut.
-- output dari file tersebut akan diberi nama baru yaitu "posisipusaka.txt" yang berisi koordinat
-  dari pusaka tersebut
-- soal_2 selesai.
+- buat file "parserkoordinat.sh" untuk mengisi file tersebut dengan script
+```
+#!/bin/bash
+
+INPUT_FILE="gsxtrack.json"
+OUTPUT_FILE="titik-penting.txt"
+
+grep -E '"id"|"site_name"|"latitude"|"longitude"' "$INPUT_FILE" | awk '
+/"id":/ {
+    id = $0;
+    sub(/."id":\s"/, "", id);
+    sub(/".*/, "", id);
+}
+/"site_name":/ {
+    name = $0;
+    sub(/."site_name":\s"/, "", name);
+    sub(/".*/, "", name);
+}
+/"latitude":/ {
+    lat = $0;
+    sub(/."latitude":\s/, "", lat);
+    sub(/,.*/, "", lat);
+}
+/"longitude":/ {
+    lon = $0;
+    sub(/."longitude":\s/, "", lon);
+    sub(/,.*/, "", lon);
+    print id ", " name ", " lat ", " lon
+}' | sort > "$OUTPUT_FILE"
+
+echo "Berhasil parsing! Cek file $OUTPUT_FILE" ```
+ 
+script ini digunakan agar id, site_name, latitude, longitude dari gsxtrack.json terlihat rapi  
+output dari script tersebut akan diberi nama baru yaitu "titik-penting.txt"
+- setelah itu lanjut membuat file baru "nemupusaka.sh" file tersebut akan di isi script 
+```
+#!/bin/bash
+
+INPUT_FILE="titik-penting.txt"
+OUTPUT_FILE="posisipusaka.txt"
+
+awk -F ', ' '
+BEGIN {
+    sum_lat = 0;
+    sum_lon = 0;
+    count = 0;
+}
+{
+    sum_lat += $3;
+    sum_lon += $4;
+    count++;
+}
+END {
+    if (count > 0) {
+        mid_lat = sum_lat / count;
+        mid_lon = sum_lon / count;
+
+        printf "Koordinat pusat:\n%.6f, %.6f\n", mid_lat, mid_lon > "'"$OUTPUT_FILE"'";
+        printf "Koordinat pusat:\n%.6f, %.6f\n", mid_lat, mid_lon;
+    } else {
+        print "File data kosong atau tidak ditemukan."
+    }
+}' "$INPUT_FILE" ```
+script tersebut digunakan untuk mencari titik tengah diagonal letak pasti pusaka tersebut.  
+output dari file tersebut akan diberi nama baru yaitu "posisipusaka.txt" yang berisi koordinat dari pusaka tersebut  
+
+*Kendala*
+- kendala pada saat mengerjakan soal 2 adalah sedikit kebingugan pada saat menginstal tools venv
 
 

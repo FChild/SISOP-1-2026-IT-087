@@ -7,7 +7,7 @@
 ## Soal_1
 
 Pada soal ini, dilakukan analisis data penumpang kereta yang tersimpan dalam file passenger.csv untuk membantu kondektur (Rusdi) membuat laporan penumpang 
-dengan beberapa analisis data sederhana dan men.
+dengan beberapa analisis data sederhana.
 
 ##	
 script ini mengasumsikan file CSV memiliki urutan kolom sebagai berikut:

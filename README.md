@@ -123,7 +123,7 @@ END {
     }
 }
 ```
-![Output Soal 1](assets/Output_soal_1.png)  
+![Output Soal 1](assets/Outputsoal_1.png)  
 **Kendala**  
 - Ada sedikit kendala untuk membersihkan data menghitung gerbong yang ada  
 
@@ -207,7 +207,12 @@ END {
 }' "$INPUT_FILE" ```
 script tersebut digunakan untuk mencari titik tengah diagonal letak pasti pusaka tersebut.  
 output dari file tersebut akan diberi nama baru yaitu "posisipusaka.txt" yang berisi koordinat dari pusaka tersebut  
-
+##
+# OUTPUT titik-penting
+![Output Soal 1](assets/Outputtitikpenting.png)  
+##
+# OUTPUT nemupusaka
+![Output Soal 1](assets/Outputnemupusaka.png)
 *Kendala*
 - kendala pada saat mengerjakan soal 2 adalah sedikit kebingugan pada saat menginstal tools venv
 

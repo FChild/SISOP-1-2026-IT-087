@@ -123,7 +123,7 @@ END {
     }
 }
 ```
-![Output Soal 1](images/"Output soal_1.png")
+![output soal 1](images/'Output soal_1.png')
 **Kendala**  
 - Ada sedikit kendala untuk membersihkan data menghitung gerbong yang ada  
 

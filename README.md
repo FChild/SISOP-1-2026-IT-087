@@ -1,8 +1,9 @@
-Muhammad Rifki Pribadi
-5027251087
-Modul 1
+# **Laporan Resmi Praktikum Modul 1 Sistem Operasi**
 
-#soal_1
+**Muhammad Rifki Pribadi 5027251087**
+
+---
+## soal_1
 
 Pada soal ini, dilakukan analisis data penumpang kereta yang tersimpan dalam file passenger.csv untuk membantu kondektur (Rusdi) membuat laporan penumpang 
 dengan beberapa analisis data sederhana dan men.
@@ -21,14 +22,18 @@ Kolom 4 ($4): Nomor/Nama Gerbong
 #step_by_step
 - unduh file passanger.csv ke terminal dengan menggunakan (wget "URL" -O passanger.csv)
 - Penjelasan sub-soal a: setelah itu lanjut ke sub soal a, yang diminta untuk menghitung seluruh penumpang namun mengabaikan baris pertama.
-
+```
 BEGIN {
-    soal = ARGV[2] //untuk mengambil input dari termial (a,b,c dll)
-    delete ARGV[2] //untuk menghapus argumen diatas agar program tidak mengira itu nama file
-    FS = "," //untuk memisahkan data dengan koma
+    soal = ARGV[2]
+    delete ARGV[2] 
+    FS = "," 
 
 }
-
+```
+soal = ARGV[2] untuk mengambil input dari termial (a,b,c dll)
+delete ARGV[2] untuk menghapus argumen diatas agar program tidak mengira itu nama file
+FS = "," untuk memisahkan data dengan koma
+```
 NR == 1 { //merupakan baris pertama
 next //baris pertama dilewati
 }
@@ -38,7 +43,7 @@ next //baris pertama dilewati
     if (soal == "a") {
         count++
     } //Menghitung jumlah penumpang.
- 
+ ```
 - Penjelasan sub-soal b: untuk sub-soal b diminta untuk menghitung ada berapa gerbong yang ada.
 
 else if (soal == "b") {

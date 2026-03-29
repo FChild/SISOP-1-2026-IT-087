@@ -1,4 +1,5 @@
 # **Laporan Resmi Praktikum Modul 1 Sistem Operasi**
+---
 
 **Muhammad Rifki Pribadi 5027251087**
 
@@ -19,7 +20,7 @@ Kolom 3 ($3): Kelas Tiket (contoh: "Business")
 
 Kolom 4 ($4): Nomor/Nama Gerbong
 
-#step_by_step
+# step_by_step
 - unduh file passanger.csv ke terminal dengan menggunakan (wget "URL" -O passanger.csv)
 - Penjelasan sub-soal a: setelah itu lanjut ke sub soal a, yang diminta untuk menghitung seluruh penumpang namun mengabaikan baris pertama.
 ```
@@ -27,63 +28,74 @@ BEGIN {
     soal = ARGV[2]
     delete ARGV[2] 
     FS = "," 
-
 }
 ```
-soal = ARGV[2] untuk mengambil input dari termial (a,b,c dll)
-delete ARGV[2] untuk menghapus argumen diatas agar program tidak mengira itu nama file
+soal = ARGV[2] untuk mengambil input dari termial (a,b,c dll)  
+delete ARGV[2] untuk menghapus argumen diatas agar program tidak mengira itu nama file  
 FS = "," untuk memisahkan data dengan koma
 ```
-NR == 1 { //merupakan baris pertama
-next //baris pertama dilewati
+NR == 1 { 
+next 
 }
 
    {
-    # a. jumlah penumpang
     if (soal == "a") {
         count++
-    } //Menghitung jumlah penumpang.
+    } 
  ```
-- Penjelasan sub-soal b: untuk sub-soal b diminta untuk menghitung ada berapa gerbong yang ada.
+NR == 1 { membaca data dari baris pertama  
+next baris pertama dilewati  
+```  
+if (soal == "a") {
+        count++
+    } 
+```
+Menghitung jumlah penumpang  
 
+- Penjelasan sub-soal b: untuk sub-soal b diminta untuk menghitung ada berapa gerbong yang ada.
+```
 else if (soal == "b") {
-    gsub(/\r/, "", $4) //agar data yang dihitung bersih dan tidak terhitung double
-    gerbong[$4]++ //Ambil kolom ke-4 (gerbong) untuk dihitung
+    gsub(/\r/, "", $4) 
+    gerbong[$4]++ 
 } 
+```
+gsub(/\r/, "", $4) agar data yang dihitung bersih dan tidak terhitung double  
+gerbong[$4]++ Ambil kolom ke-4 (gerbong) untuk dihitung  
 
 - Penjelasan sub-soal c: sub-soal C diminta untuk mencari penumpang tertua di dalam kereta
-
+```
     else if (soal == "c") {
         if ($2 > max_age) {
             max_age = $2
             oldest = $1
         }
     }
-
+```
 kode tersebut bekerja dengan membandingkan usia saat ini ($2) dengan usia tertinggi yang tercatat sejauh ini (max_age). 
 Jika lebih besar, sistem akan memperbarui nilai max_age dan menyimpan nama orang tersebut ke variabel oldest ($1).
 
 - Penjelasan sub-soal d: untuk sub-soal d diminta untuk menghitung rata-rata dari usia penumpang.
-
+```
 else if (soal == "d") {
         total_age += $2
         count_age++
     }
-
+```
 Kode tersebut bekerja dengan menjumlahkan seluruh usia ke dalam variabel total_age (total_age += $2) 
 setelah itu menghitung jumlah data seluruh usia untuk rata-rata.
 
 - Penjelasan sub-soal e: untuk sub-soal ini diminta untuk menghitung jumlah penumpang bussiness class yang ada.
-
+```
 else if (soal == "e") {
     if ($3 == "Business") {
         business++
     }
 }
+```
 kode ini bekerja dengan mengecek kolom kelas ($3) dan menambah jumlah jika kelasnya "Business".
 
-#OUTPUT UNTUK SOAL_1
-
+# OUTPUT UNTUK SOAL_1
+```
 END {
     if (soal == "a") {
         print "Jumlah penumpang:", count
@@ -110,11 +122,11 @@ END {
         print "Contoh penggunaan: awk -f KANJ.sh passenger.csv a"
     }
 }
+```
+---
 
-######################################################################3
 
-
-#Soal_2
+##Soal_2
 Untuk soal kedua ini, kita mencari data koordinat dari file JSON dan bikin kalkulasi bash script buat nyari lokasi rahasia. 
 
 #PENJELASAN ALUR (STEPBYSTEP)

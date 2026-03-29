@@ -4,14 +4,14 @@
 **Muhammad Rifki Pribadi 5027251087**
 
 ---
-## soal_1
+## Soal_1
 
 Pada soal ini, dilakukan analisis data penumpang kereta yang tersimpan dalam file passenger.csv untuk membantu kondektur (Rusdi) membuat laporan penumpang 
 dengan beberapa analisis data sederhana dan men.
 
+##	
 script ini mengasumsikan file CSV memiliki urutan kolom sebagai berikut:
 
-##
 Kolom 1 ($1): Nama Penumpang
 
 Kolom 2 ($2): Usia
@@ -19,8 +19,8 @@ Kolom 2 ($2): Usia
 Kolom 3 ($3): Kelas Tiket (contoh: "Business")
 
 Kolom 4 ($4): Nomor/Nama Gerbong
-
-# step_by_step
+##
+# Step by Step
 - unduh file passanger.csv ke terminal dengan menggunakan (wget "URL" -O passanger.csv)
 - Penjelasan sub-soal a: setelah itu lanjut ke sub soal a, yang diminta untuk menghitung seluruh penumpang namun mengabaikan baris pertama.
 ```
@@ -123,6 +123,10 @@ END {
     }
 }
 ```
+![Output soal1](SISOP/Outuput soal_1.png)
+**Kendala**  
+- Ada sedikit kendala untuk membersihkan data menghitung gerbong yang ada  
+
 ---
 
 

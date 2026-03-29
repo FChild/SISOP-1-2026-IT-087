@@ -111,12 +111,13 @@ END {
 
     else if (soal == "d") {
         rata = total_age / count_age
-        printf "Rata-rata usia penumpang adalah " int(rata + 0.5) " tahun\n"
+        printf "Rata-rata usia penumpang adalah %d tahun\n", int(rata)
     }
-
+    
     else if (soal == "e") {
         print "Jumlah penumpang Business Class:", business
     }
+    
     else {
         print "Soal tidak dikenali. Gunakan a, b, c, d, atau e."
         print "Contoh penggunaan: awk -f KANJ.sh passenger.csv a"
